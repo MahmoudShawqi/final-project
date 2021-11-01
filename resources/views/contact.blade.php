@@ -8,14 +8,14 @@
     <title>Document</title>
 </head>
 
-<body>
-    {{-- <h1>contact us</h1> --}}
-    <form action="send" method="post">
-        @csrf
-        <input type="text" name="name" id="name">
-        <input type="submit" value="Send">
-    </form>
-    <h1>Hi,{{$name}}</h1>
+ <body>
+     <ul>
+     @foreach ($tasks as $index=>$task)
+    <li>{{$index}}</li>
+    <li>{{$task}}</li>
+     @endforeach
+    </ul>
+    {{-- <h1>Hi,{{$name}}</h1>  --}}
 </body>
 
 </html>

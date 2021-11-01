@@ -7,26 +7,27 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     //
+    // public function about()
+    // {
+    //     $name = 'Ahmed';
+    //     $age = '80';
+    //     // return view('about' , ['name' => $name , 'age'=>$age]);
+    //     // return view('about')->with('age', $age)->with('name', $name);
+    //     //يجب توفر امر واحد من ال about
+    //     return view('about', compact('name', 'age')); //سهل في تنفيذ الامر وهو compact
+    // }
     public function about()
     {
-        $name = 'Ahmed';
-        $age = '80';
-        // return view('about' , ['name' => $name , 'age'=>$age]);
-        // return view('about')->with('age', $age)->with('name', $name);
-        //يجب توفر امر واحد من ال about
-        return view('about', compact('name', 'age')); //سهل في تنفيذ الامر وهو compact
-    }
-    public function contact()
-    {
-            $name = "Mohammed";
-            return view('contact', compact('name'));
-
+        $name = " ";
+        return view('about', compact('name'));
     }
     public function send()
     {
-        $name = $_REQUEST['name'];
-        $age = $_REQUEST['age'];
-        return view('contact', compact('name', 'age'));
+        // $name = $_REQUEST['name'];
+        // $age = $_REQUEST['age'];
+        $name = request('name');
+
+        return view('about', compact('name'));
     }
     public function tasks()
     {
@@ -38,5 +39,21 @@ class TaskController extends Controller
             'c' => 'Task 3'
         ];
         return view('tasks', compact('tasks'));
+    }
+    public function contact(){
+        // $tasks = [
+        //     'task1',
+        //     'task2',
+        //     'task3'
+        // ]
+        $tasks=[
+            'Task-1'=>'Make our assignment',
+            'Task-2'=>'Check your phone',
+            'Task-3'=>'Watch a match'
+        ];
+        return view('contact',compact('tasks'));
+
+
+
     }
 }

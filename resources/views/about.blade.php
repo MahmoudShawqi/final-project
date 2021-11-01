@@ -13,11 +13,16 @@
     <?php echo "I am $name";
     // <h1>{{$name}}</h1>
     // <h1>{{$age}}</h1>
-        echo "<br>";
+        // echo "<br>";
         echo "I am $age";
         //علامة الدولار دائما لازم تكون متوفرة
         ?> --}}
-        <h1>my name is {{$name}}</h1>
-        <h1>my age is {{$age}}</h1>
+        <form action="/about" method="post">
+            @csrf
+            <input type="text" name="name" id="name">
+            <input type="submit" value="Send">
+        </form>
+        <h1>my name is :{{$name}}</h1>
+        {{-- <h1>my age is : {{$age}}</h1> --}}
 </body>
 </html>
