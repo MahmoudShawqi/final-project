@@ -22,12 +22,14 @@ Route::get('/about', [TaskController::class,'about']);
 Route::get('/contact',[TaskController::class,'contact']);
 Route::post('/about', [TaskController::class,'send']);
 Route::get('/tasks', [TaskController::class,'tasks']);
-Route::get('show/{id}', function ($id) {
-    $tasks = [
-        'task_1' => 'Task 1',
-        2 => 'Task 2',
-        'c' => 'Task 3'
-    ];
-    $task = $tasks[$id] ;
-    return view('show' , compact('task'));
+Route::get('/show/{id}', function ($id) {
+
+        $tasks = [
+            'task_1' => 'Task 1',
+            2 => 'Task 2',
+            'c' => 'Task 3'
+        ];
+        $task = $tasks[$id] ;
+        return view('show' , compact('task'));
+
 });
