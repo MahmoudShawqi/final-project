@@ -7,12 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        @foreach ($tasks as $key => $task)
-        {{-- <li>{{$key}} - <h2>{{$task}}</h2></li> --}}
-        <li><a href="{{'show/' . $key}}">{{$task}}</a></li>
-        @endforeach
-    </ul>
-<h1>{{$tasks['c']}}</h1>
+    <h1>{{$task}}</h1>
 </body>
 </html>

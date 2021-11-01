@@ -17,10 +17,10 @@ class TaskController extends Controller
         return view('about', compact('name', 'age')); //سهل في تنفيذ الامر وهو compact
     }
     public function contact()
-    { {
+    {
             $name = "Mohammed";
             return view('contact', compact('name'));
-        }
+
     }
     public function send()
     {
