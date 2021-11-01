@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TaskController;
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('about', function () {
-    $name = 'Ahmed';
-    $age = '80';
-    // return view('about' , ['name' => $name]);
-    // return view('about') ->with('age', $age);
-    //يجب توفر امر واحد من ال about
-    return view('about' ,compact('name' , 'age'));//سهل في تنفيذ الامر وهو compact
-});
-Route::get('contact', function () {
-    return view('contact');
-});
+Route::get('/about', [TaskController::class,'about']);
+Route::get('/contact',[TaskController::class,'contact']);
+Route::post('/about', [TaskController::class,'send']);
+Route::get('/tasks', [TaskController::class,'tasks']);
