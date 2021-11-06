@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/contact', [TaskController::class, 'contact']);
+Route::get('/contact', [TaskController::class, 'index']);
 Route::get('/about', [TaskController::class, 'about']);
 Route::post('/about', [TaskController::class, 'send']);
 Route::get('/tasks', [TaskController::class, 'tasks']);
@@ -32,3 +32,4 @@ Route::get('/show/{id}', function ($id) {
     $task = $tasks[$id];
     return view('show', compact('task'));
 });
+Route::get('contact/{id}',[TaskController::class,'show']);

@@ -11,8 +11,9 @@
  <body>
      <ul>
      @foreach ($tasks as $index=>$task)
-    <li>{{$index}}</li>
-    <li>{{$task}}</li>
+    {{-- <li>{{$index}}</li> --}}
+    {{-- <li>{{$task->id}}</li> --}}
+    <li><a href="contact/{{$task->id}}">{{$task->name}}</a></li>
      @endforeach
     </ul>
     {{-- <h1>Hi,{{$name}}</h1>  --}}

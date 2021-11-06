@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -40,20 +41,17 @@ class TaskController extends Controller
         ];
         return view('tasks', compact('tasks'));
     }
-    public function contact(){
-        // $tasks = [
-        //     'task1',
-        //     'task2',
-        //     'task3'
-        // ]
-        $tasks=[
-            'Task-1'=>'Make our assignment',
-            'Task-2'=>'Check your phone',
-            'Task-3'=>'Watch a match'
-        ];
+    public function index(){
+        // $tasks=[
+        //     'Task-1'=>'Make our assignment',
+        //     'Task-2'=>'Check your phone',
+        //     'Task-3'=>'Watch a match'
+        // ];
+        $tasks = DB::table('tasks')->where('name','like','Task %')->get();
         return view('contact',compact('tasks'));
-
-
-
+    }
+    public function show($id){
+        $task = DB::table('tasks')->find($id);
+        return view('task',compact('task'));
     }
 }
