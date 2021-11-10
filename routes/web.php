@@ -15,21 +15,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/contact', [TaskController::class, 'index']);
-Route::get('/about', [TaskController::class, 'about']);
-Route::post('/about', [TaskController::class, 'send']);
-Route::get('/tasks', [TaskController::class, 'tasks']);
-Route::get('/show/{id}', function ($id) {
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/contact', [TaskController::class, 'index']);
+// Route::get('/about', [TaskController::class, 'about']);
+// Route::post('/about', [TaskController::class, 'send']);
+// Route::get('/tasks', [TaskController::class, 'tasks']);
+// Route::get('/show/{id}', function ($id) {
 
-    $tasks = [
-        'task_1' => 'Task 1',
-        2 => 'Task 2',
-        'c' => 'Task 3'
-    ];
-    $task = $tasks[$id];
-    return view('show', compact('task'));
-});
-Route::get('contact/{id}',[TaskController::class,'show']);
+//     $tasks = [
+//         'task_1' => 'Task 1',
+//         2 => 'Task 2',
+//         'c' => 'Task 3'
+//     ];
+//     $task = $tasks[$id];
+//     return view('show', compact('task'));
+// });
+// Route::get('contact/{id}', [TaskController::class, 'show']);
+//
+// Route::get('app', function () {
+//     return view('layout.app');
+// });
+Route::get('/',[TaskController::class,'index']);
+Route::post('store', [TaskController::class, 'store']);
+
