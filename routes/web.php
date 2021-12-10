@@ -44,3 +44,7 @@ Route::patch('update/{id}', [TaskController::class, 'update']);
 Route::put('edit/{id}', [TaskController::class, 'edit']);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
