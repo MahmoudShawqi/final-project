@@ -39,4 +39,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/',[TaskController::class,'index']);
 Route::post('store', [TaskController::class, 'store']);
+Route::get('delete/{id}', [TaskController::class, 'delete']);
+Route::patch('update/{id}', [TaskController::class, 'update']);
+Route::put('edit/{id}', [TaskController::class, 'edit']);
+
 

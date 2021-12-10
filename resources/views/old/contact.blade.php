@@ -8,13 +8,13 @@
     <title>Document</title>
 </head>
 
- <body>
-     <ul>
-     @foreach ($tasks as $index=>$task)
+<body>
+    <ul>
+    @foreach ($tasks as $index=>$task)
     {{-- <li>{{$index}}</li> --}}
     {{-- <li>{{$task->id}}</li> --}}
     <li><a href="contact/{{$task->id}}">{{$task->name}}</a></li>
-     @endforeach
+    @endforeach
     </ul>
     {{-- <h1>Hi,{{$name}}</h1>  --}}
 </body>
