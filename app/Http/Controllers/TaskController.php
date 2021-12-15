@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class TaskController extends Controller
@@ -12,7 +13,6 @@ class TaskController extends Controller
     {
         $this->middleware('auth');
     }
-
     //
     // public function about()
     // {
@@ -67,13 +67,14 @@ class TaskController extends Controller
 
         public function index(){
             // $tasks = DB::table('tasks')->get();
-            $tasks = Task::all();
+            $tasks = Task::where('user_id', Auth::id())->OrderBy('id')->paginate(5) ;
             return view('index', compact('tasks'));
         }
 
         public function store(Request $request){
             $task = new Task();
             $task->name = $request->task_name;
+            $task->user_id = Auth::id();
             $task->save();
 
             return redirect()->back();
@@ -122,4 +123,4 @@ class TaskController extends Controller
             return view('edit',compact('task'));
 
         }
-}
+    }
